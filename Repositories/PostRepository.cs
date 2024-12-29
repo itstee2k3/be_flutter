@@ -1,5 +1,5 @@
-﻿using api_bui_xuan_thang.Models;
-using api_bui_xuan_thang.Repositories;
+﻿using be_flutter_nhom2.Models;
+using be_flutter_nhom2.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 public class PostRepository : IPostRepository

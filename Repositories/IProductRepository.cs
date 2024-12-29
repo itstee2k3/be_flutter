@@ -1,6 +1,6 @@
-using api_bui_xuan_thang.Models;
+using be_flutter_nhom2.Models;
 
-namespace api_bui_xuan_thang.Repositories;
+namespace be_flutter_nhom2.Repositories;
 
 public interface IProductRepository
 {

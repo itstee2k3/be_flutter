@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace api_bui_xuan_thang.Models;
+namespace be_flutter_nhom2.Models;
 
 public class RegistrationModel
 {

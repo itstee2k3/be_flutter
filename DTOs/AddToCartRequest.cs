@@ -1,4 +1,4 @@
-namespace api_bui_xuan_thang.DTOs;
+namespace be_flutter_nhom2.DTOs;
 
 public class AddToCartRequest
 {

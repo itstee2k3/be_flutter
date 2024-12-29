@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using api_bui_xuan_thang.Models;
+using be_flutter_nhom2.Models;
 using Microsoft.AspNetCore.Authorization;
 
 [Route("api/[controller]")]

@@ -1,8 +1,8 @@
-using api_bui_xuan_thang.Models;
-using api_bui_xuan_thang.Repositories;
+using be_flutter_nhom2.Models;
+using be_flutter_nhom2.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
-namespace api_bui_xuan_thang.Controllers;
+namespace be_flutter_nhom2.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 

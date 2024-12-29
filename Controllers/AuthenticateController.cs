@@ -1,13 +1,13 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using api_bui_xuan_thang.Models;
+using be_flutter_nhom2.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
-namespace api_bui_xuan_thang.Controllers;
+namespace be_flutter_nhom2.Controllers;
 
 public class AuthenticateController : ControllerBase
 {

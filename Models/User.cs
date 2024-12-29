@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace api_bui_xuan_thang.Models;
+namespace be_flutter_nhom2.Models;
 
 public class User : IdentityUser
 {

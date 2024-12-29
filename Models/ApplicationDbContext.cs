@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace api_bui_xuan_thang.Models;
+namespace be_flutter_nhom2.Models;
 
 public class ApplicationDbContext : IdentityDbContext<User>
 {
