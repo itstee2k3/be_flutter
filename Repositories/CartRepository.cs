@@ -16,7 +16,7 @@ public class CartRepository : ICartRepository
     public async Task<List<Cart>> GetCartByIdUserAsync(string idUser)
     {
         var carts = await _context.Carts
-            .Include(c => c.Product)  // Bao gồm thông tin sản phẩm
+            .Include(c => c.Food)  // Bao gồm thông tin sản phẩm
             .Where(c => c.UserId == idUser)  // Lấy tất cả sản phẩm trong giỏ hàng của người dùng
             .ToListAsync();  // Trả về danh sách giỏ hàng của người dùng
 
@@ -25,11 +25,11 @@ public class CartRepository : ICartRepository
 
 
     // 2. Thêm sản phẩm vào giỏ hàng
-    public async Task<Cart> AddProductToCartAsync(string idUser, int idProduct, int quantity)
+    public async Task<Cart> AddFoodToCartAsync(string idUser, int idFood, int quantity)
     {
         var cart = await _context.Carts
-            .Include(c => c.Product)  // Bao gồm thông tin sản phẩm
-            .FirstOrDefaultAsync(c => c.UserId == idUser && c.ProductId == idProduct);
+            .Include(c => c.Food)  // Bao gồm thông tin sản phẩm
+            .FirstOrDefaultAsync(c => c.UserId == idUser && c.FoodId == idFood);
 
         // Nếu sản phẩm chưa có trong giỏ hàng của người dùng, tạo mới
         if (cart == null)
@@ -37,7 +37,7 @@ public class CartRepository : ICartRepository
             cart = new Cart
             {
                 UserId = idUser.ToString(),
-                ProductId = idProduct,
+                FoodId = idFood,
                 Quantity = quantity
             };
             _context.Carts.Add(cart);
@@ -53,10 +53,10 @@ public class CartRepository : ICartRepository
     }
 
     // 3. Xóa sản phẩm khỏi giỏ hàng
-    public async Task<Cart> RemoveProductFromCartAsync(string idUser, int idProduct)
+    public async Task<Cart> RemoveFoodFromCartAsync(string idUser, int idFood)
     {
         var cart = await _context.Carts
-            .FirstOrDefaultAsync(c => c.UserId == idUser && c.ProductId == idProduct);
+            .FirstOrDefaultAsync(c => c.UserId == idUser && c.FoodId == idFood);
 
         if (cart != null)
         {
@@ -68,10 +68,10 @@ public class CartRepository : ICartRepository
     }
 
     // 4. Cập nhật số lượng sản phẩm trong giỏ hàng
-    public async Task<Cart> UpdateProductQuantityAsync(string idUser, int idProduct, int newQuantity)
+    public async Task<Cart> UpdateFoodQuantityAsync(string idUser, int idFood, int newQuantity)
     {
         var cart = await _context.Carts
-            .FirstOrDefaultAsync(c => c.UserId == idUser && c.ProductId == idProduct);
+            .FirstOrDefaultAsync(c => c.UserId == idUser && c.FoodId == idFood);
 
         if (cart != null)
         {
@@ -94,13 +94,13 @@ public class CartRepository : ICartRepository
     }
 
     // 6. Tính tổng giá trị giỏ hàng
-    public async Task<decimal> GetCartTotalAsync(string idUser)
+    public async Task<double> GetCartTotalAsync(string idUser)
     {
         var cartItems = await _context.Carts
-            .Include(c => c.Product)  // Bao gồm thông tin sản phẩm
+            .Include(c => c.Food)  // Bao gồm thông tin sản phẩm
             .Where(c => c.UserId == idUser)
             .ToListAsync();  // Lấy tất cả sản phẩm trong giỏ hàng
-
-        return cartItems.Sum(ci => ci.Quantity * ci.Product.Price);  // Tính tổng giá trị giỏ hàng
+    
+        return cartItems.Sum(ci => ci.Quantity * ci.Food.Calories);  // Tính tổng giá trị giỏ hàng
     }
 }

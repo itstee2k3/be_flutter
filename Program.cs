@@ -23,7 +23,7 @@ builder.Services.AddIdentity<User, IdentityRole>(options =>
 
 builder.Services.AddControllers();
 
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
+// builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ICartRepository, CartRepository>();
 builder.Services.AddScoped<IPostRepository, PostRepository>();
 

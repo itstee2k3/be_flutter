@@ -7,11 +7,11 @@ namespace be_flutter_nhom2.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CartApiController : ControllerBase
+    public class CartController : ControllerBase
     {
         private readonly ICartRepository _cartRepository;
 
-        public CartApiController(ICartRepository cartRepository)
+        public CartController(ICartRepository cartRepository)
         {
             _cartRepository = cartRepository;
         }
@@ -45,7 +45,7 @@ namespace be_flutter_nhom2.Controllers
                     return BadRequest(new { message = "Số lượng sản phẩm phải lớn hơn 0." });
                 }
 
-                var cart = await _cartRepository.AddProductToCartAsync(idUser, idProduct, request.Quantity);
+                var cart = await _cartRepository.AddFoodToCartAsync(idUser, idProduct, request.Quantity);
                 return Ok(cart);  // Trả về giỏ hàng đã cập nhật
             }
             catch (Exception ex)
@@ -61,7 +61,7 @@ namespace be_flutter_nhom2.Controllers
         {
             try
             {
-                var cart = await _cartRepository.RemoveProductFromCartAsync(idUser, idProduct);
+                var cart = await _cartRepository.RemoveFoodFromCartAsync(idUser, idProduct);
                 if (cart == null)
                 {
                     return NotFound(new { message = "Sản phẩm không tồn tại trong giỏ hàng." });
@@ -85,7 +85,7 @@ namespace be_flutter_nhom2.Controllers
                     return BadRequest(new { message = "Số lượng sản phẩm phải lớn hơn 0." });
                 }
 
-                var cart = await _cartRepository.UpdateProductQuantityAsync(idUser, idProduct, request.Quantity);
+                var cart = await _cartRepository.UpdateFoodQuantityAsync(idUser, idProduct, request.Quantity);
                 if (cart == null)
                 {
                     return NotFound(new { message = "Sản phẩm không tồn tại trong giỏ hàng." });
