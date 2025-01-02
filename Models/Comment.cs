@@ -7,6 +7,9 @@ public class Comment
     public string UserId { get; set; } // Khóa ngoại đến User
         
     public string Content { get; set; } // Nội dung bình luận
+    
+    public bool Status { get; set; }
+
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow; // Thời gian tạo bình luận
         
     // Navigation properties

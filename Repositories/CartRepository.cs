@@ -101,6 +101,6 @@ public class CartRepository : ICartRepository
             .Where(c => c.UserId == idUser)
             .ToListAsync();  // Lấy tất cả sản phẩm trong giỏ hàng
     
-        return cartItems.Sum(ci => ci.Quantity * ci.Food.Calories);  // Tính tổng giá trị giỏ hàng
+        return cartItems.Sum(ci => ci.Quantity);  // Tính tổng giá trị giỏ hàng
     }
 }

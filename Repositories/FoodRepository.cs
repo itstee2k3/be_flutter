@@ -5,10 +5,10 @@
 //
 // namespace be_flutter_nhom2.Repositories;
 //
-// public class ProductRepository : IProductRepository
+// public class FoodRepository : IFoodRepository
 // {
 //     private readonly ApplicationDbContext _context;
-//     public ProductRepository(ApplicationDbContext context)
+//     public FoodRepository(ApplicationDbContext context)
 //     {
 //         _context = context;
 //     }
