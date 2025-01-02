@@ -6,13 +6,13 @@ public interface ICartRepository
 {
     Task<List<Cart>> GetCartByIdUserAsync(string idUser);
 
-    Task<Cart> AddProductToCartAsync(string idUser, int idProduct, int quantity);
+    Task<Cart> AddFoodToCartAsync(string idUser, int idFood, int quantity);
     
-    Task<Cart> RemoveProductFromCartAsync(string idUser, int idProduct);
+    Task<Cart> RemoveFoodFromCartAsync(string idUser, int idFood);
     
-    Task<Cart> UpdateProductQuantityAsync(string idUser, int idProduct, int newQuantity);
+    Task<Cart> UpdateFoodQuantityAsync(string idUser, int idFood, int newQuantity);
 
     Task ClearCartAsync(string idUser);
     
-    Task<decimal> GetCartTotalAsync(string idUser);
+    Task<double> GetCartTotalAsync(string idUser);
 }

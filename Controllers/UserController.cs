@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 
 [Route("api/[controller]")]
 [ApiController]
-[Authorize]  // Đảm bảo rằng người dùng đã đăng nhập
+[Authorize]
 public class UserController : ControllerBase
 {
     private readonly UserManager<User> _userManager;
@@ -48,7 +48,7 @@ public class UserController : ControllerBase
 
     // API để cập nhật thông tin người dùng
     [HttpPut("update")]
-    public async Task<IActionResult> UpdateUserProfile([FromBody] UpdateUserModel model)
+    public async Task<IActionResult> UpdateUserProfile([FromBody] User model)
     {
         var user = await _userManager.GetUserAsync(User);
         if (user == null)
@@ -67,11 +67,4 @@ public class UserController : ControllerBase
 
         return Ok("Profile updated successfully.");
     }
-}
-
-// Đối tượng model để cập nhật người dùng
-public class UpdateUserModel
-{
-    public string UserName { get; set; }
-    public string Email { get; set; }
 }
